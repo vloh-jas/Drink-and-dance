@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Ticket, Heart, Disc3, Sparkles, Wine, GlassWater } from 'lucide-react';
+import { Calendar, MapPin, Ticket, Heart, Disc3, Sparkles, Wine, GlassWater, ExternalLink } from 'lucide-react';
 import { Concert } from '../types';
 import { PAIRINGS } from '../services/mocktailPairings';
 
@@ -75,7 +75,7 @@ export const ConcertCard: React.FC<ConcertCardProps> = ({
               {concert.genre}
             </span>
             <span className="font-syne font-bold text-lg text-white drop-shadow-md">
-              From S${concert.startingPrice}
+              {concert.startingPrice > 0 ? `From S$${concert.startingPrice}` : 'Price TBA'}
             </span>
           </div>
         </div>
@@ -164,6 +164,18 @@ export const ConcertCard: React.FC<ConcertCardProps> = ({
           <Disc3 className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '6s' }} />
           <span>Preview iTunes Albums & Tracks</span>
         </button>
+
+        {concert.ticketUrl && (
+          <a
+            href={concert.ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-1.5 px-3 rounded-lg bg-[#1f1f22] hover:bg-[#2a2a2d] text-[#c1c6d9] hover:text-white text-[11px] font-medium flex items-center justify-center gap-1.5 border border-[#2a2a2d] transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            <span>View on Ticketmaster</span>
+          </a>
+        )}
 
         <div className="flex items-center gap-2">
           <button

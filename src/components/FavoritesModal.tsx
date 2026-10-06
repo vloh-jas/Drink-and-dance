@@ -70,7 +70,7 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
                       <span className="truncate">{c.dates.split('•')[0]}</span>
                     </div>
                     <div className="text-xs font-semibold text-[#ffb4a7] mt-0.5">
-                      From S${c.startingPrice}
+                      {c.startingPrice > 0 ? `From S$${c.startingPrice}` : 'Price TBA'}
                     </div>
                   </div>
                 </div>

@@ -31,6 +31,38 @@ async function startServer() {
     }
   });
 
+  // Proxy for Ticketmaster Discovery API — upcoming music events in Singapore.
+  // Keeps TICKETMASTER_API_KEY on the server.
+  app.get('/api/concerts/singapore', async (req, res) => {
+    const apiKey = process.env.TICKETMASTER_API_KEY;
+    if (!apiKey || apiKey === '<ticketmaster_apikey>') {
+      return res.status(503).json({ error: 'TICKETMASTER_API_KEY is not configured' });
+    }
+    try {
+      const params = new URLSearchParams({
+        apikey: apiKey,
+        countryCode: 'SG',
+        classificationName: 'music',
+        sort: 'date,asc',
+        size: String(Math.min(Number(req.query.size) || 50, 200)),
+        locale: '*',
+      });
+      if (typeof req.query.keyword === 'string' && req.query.keyword.trim()) {
+        params.set('keyword', req.query.keyword.trim());
+      }
+      const ticketmasterUrl = `https://app.ticketmaster.com/discovery/v2/events.json?${params}`;
+      const response = await fetch(ticketmasterUrl);
+      if (!response.ok) {
+        throw new Error(`Ticketmaster returned ${response.status}`);
+      }
+      const data = await response.json();
+      return res.json({ events: data._embedded?.events ?? [] });
+    } catch (err: any) {
+      console.error('Error fetching Ticketmaster events:', err);
+      return res.status(502).json({ error: err.message || 'Failed to fetch Ticketmaster events' });
+    }
+  });
+
   // Vite middleware in dev or static files in production
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'dist')));

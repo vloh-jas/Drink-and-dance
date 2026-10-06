@@ -54,6 +54,8 @@ export interface Concert {
   pairedCocktailId?: string;
   pairedMocktailGenre?: string;
   pairedMocktail?: MocktailPairingInfo;
+  source?: 'ticketmaster' | 'curated';
+  ticketUrl?: string;
 }
 
 export interface CocktailExperience {

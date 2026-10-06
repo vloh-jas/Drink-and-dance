@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Sparkles,
   Ticket,
@@ -37,6 +37,7 @@ import {
   getDrinkDetail,
   FALLBACK_DRINK_DETAILS,
 } from './services/mocktailPairings';
+import { fetchSingaporeConcerts } from './services/ticketmasterApi';
 import {
   CONCERTS_DATA,
   COCKTAILS_DATA,
@@ -106,6 +107,19 @@ export default function App() {
   const [inspectingDrinkDetail, setInspectingDrinkDetail] = useState<DrinkDetail | null>(null);
   const [inspectingPairing, setInspectingPairing] = useState<Pairing | null>(null);
   const [isShakingDetail, setIsShakingDetail] = useState<boolean>(false);
+
+  // Concert listings: live Ticketmaster events, falling back to curated data
+  const [concerts, setConcerts] = useState<Concert[]>(CONCERTS_DATA);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchSingaporeConcerts().then((live) => {
+      if (!cancelled && live.length > 0) setConcerts(live);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Music Sheet State (iTunes integration)
   const [musicArtist, setMusicArtist] = useState<string>('Jack Johnson');
@@ -191,7 +205,7 @@ export default function App() {
 
   // Filtered concerts
   const filteredConcerts = useMemo(() => {
-    return CONCERTS_DATA.filter((concert) => {
+    return concerts.filter((concert) => {
       // 1. Text Search
       if (searchTerm.trim()) {
         const query = searchTerm.toLowerCase();
@@ -256,7 +270,7 @@ export default function App() {
 
       return true;
     });
-  }, [searchTerm, selectedDate, selectedVenue, genreFilter, selectedTag]);
+  }, [concerts, searchTerm, selectedDate, selectedVenue, genreFilter, selectedTag]);
 
   // Filtered cocktails
   const filteredCocktails = useMemo(() => {
@@ -271,8 +285,9 @@ export default function App() {
 
   // Favorite concerts list
   const favoriteConcertsList = useMemo(() => {
-    return CONCERTS_DATA.filter((c) => favorites.includes(c.id));
-  }, [favorites]);
+    const all = [...concerts, ...CONCERTS_DATA.filter((c) => !concerts.includes(c))];
+    return all.filter((c) => favorites.includes(c.id));
+  }, [concerts, favorites]);
 
   const handleBookingSuccess = (newTicket: BookedTicket) => {
     setBookedTickets((prev) => [newTicket, ...prev]);
