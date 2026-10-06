@@ -16,7 +16,7 @@ export const MobileFrame: React.FC<MobileFrameProps> = ({ children }) => {
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#b41503] animate-pulse"></span>
           <span className="font-syne font-bold tracking-wider uppercase text-white">
-            BookMyShow SG
+            Mixtape SG
           </span>
           <span className="text-[11px] text-[#c1c6d9]">
             • Mobile-First Responsive Live Ticketing

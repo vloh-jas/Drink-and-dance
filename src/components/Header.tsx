@@ -88,11 +88,11 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <img
               src="https://lh3.googleusercontent.com/aida/AEtjO1UBs5Htlhk-Qc4vDTa_r8efEX15y01kQBsIEg3uzDHUSfiSeZPXnhLSEhevYhlk-Qat9oKfeut7xvbjrqHOdxr2TIFJLd3RhWTqaGMfzU7SVk83luKWeaJtzlw_xM1V7U0IPCEK1lgqnqPmjPwhiC9NjTXrbg46XUJvZF09Oa3f2k-cjQKHMQCj070CvZcqjllVUTSDb5vLKV17pjbIzMaOOrwZq72MBbU1EjpXBMt9INwpFZ0CfNNAtRQ"
-              alt="BookMyShow SG"
+              alt="Mixtape SG"
               className="h-7 w-auto object-contain"
             />
             <span className="font-syne font-bold text-sm tracking-wider uppercase text-white hidden md:inline-block">
-              BookMyShow
+              Mixtape
             </span>
           </button>
 
@@ -157,13 +157,14 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('lounges')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
               activeTab === 'lounges'
                 ? 'bg-[#b41503] text-white shadow-[0_0_16px_rgba(180,21,3,0.3)]'
                 : 'text-[#c1c6d9] hover:text-white'
             }`}
           >
-            Cocktails & VIP Lounges
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Mocktail DJ</span>
           </button>
           <button
             type="button"

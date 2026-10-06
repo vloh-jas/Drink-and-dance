@@ -59,7 +59,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onLoginSu
     const user: UserProfile = {
       id: `usr-${Math.floor(100000 + Math.random() * 900000)}`,
       name: emailOrPhone.includes('@') ? emailOrPhone.split('@')[0] : 'Concert VIP',
-      email: emailOrPhone.includes('@') ? emailOrPhone : 'member@bookmyshow.sg',
+      email: emailOrPhone.includes('@') ? emailOrPhone : 'member@mixtape.sg',
       phone: emailOrPhone.includes('@') ? '+65 9123 4567' : emailOrPhone,
       membershipTier: 'Gold VIP Pass',
       avatarUrl:
@@ -119,7 +119,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onLoginSu
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#b41503] animate-pulse"></span>
             <span className="font-syne font-bold text-xs uppercase tracking-wider text-white">
-              BookMyShow SG Member Club
+              Mixtape SG Member Club
             </span>
           </div>
           <button
@@ -236,7 +236,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onLoginSu
                 type="submit"
                 className="w-full py-3 bg-[#b41503] hover:bg-[#f80824] text-white rounded-xl font-bold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(180,21,3,0.4)] flex items-center justify-center gap-1.5"
               >
-                <span>Sign In to BookMyShow</span>
+                <span>Sign In to Mixtape</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 

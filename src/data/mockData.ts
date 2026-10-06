@@ -36,7 +36,7 @@ export const CONCERTS_DATA: Concert[] = [
     dates: '12 – 14 Dec 2025 • 19:30 SGT',
     dateKey: 'dec-2025',
     startingPrice: 168,
-    badge: 'BookMyShow Exclusive',
+    badge: 'Mixtape Exclusive',
     badgeType: 'primary',
     subBadge: 'Homecoming Finale',
     description: 'The grand hometown finale with full spatial orchestra and acoustic stage.',

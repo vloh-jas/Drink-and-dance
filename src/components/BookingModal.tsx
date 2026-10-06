@@ -140,7 +140,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#f80824] animate-pulse"></span>
             <span className="font-syne font-bold text-xs uppercase tracking-wider text-white">
-              Official BookMyShow Singapore Box Office
+              Official Mixtape Singapore Box Office
             </span>
           </div>
           <button

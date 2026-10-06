@@ -94,7 +94,6 @@ export default function App() {
   const [favorites, setFavorites] = useState<string[]>(['coldplay', 'yoasobi']);
   const [bookedTickets, setBookedTickets] = useState<BookedTicket[]>(INITIAL_BOOKED_TICKETS);
   const [loungeBookings, setLoungeBookings] = useState<LoungeBooking[]>([]);
-  const [homeDrinkMode, setHomeDrinkMode] = useState<'mocktail-dj' | 'signature' | 'non-alcoholic'>('mocktail-dj');
 
   // Modal states
   const [bookingConcert, setBookingConcert] = useState<Concert | null>(null);
@@ -452,181 +451,31 @@ export default function App() {
                 )}
               </section>
 
-              {/* PERSONALIZED COCKTAILS SECTION: CONCERT PAIRING & VIP LOUNGES */}
+              {/* TEASER SECTION: MOCKTAIL DJ */}
               <section className="w-full py-10 sm:py-14 bg-[#0e0e11] relative overflow-hidden border-t border-[#2a2a2d]">
-                <div className="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-[#ffb4a7]/10 blur-[130px] pointer-events-none"></div>
+                <div className="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-emerald-500/10 blur-[130px] pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-8 relative">
-                  {/* Section Header */}
-                  <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6 sm:mb-8">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1f2533] text-[#ffb4a7] border border-[#ffb4a7]/20">
-                        <Wine className="w-3.5 h-3.5" />
-                        <span className="text-[10px] uppercase font-bold tracking-widest">
-                          Mixology & High Hospitality
-                        </span>
+                  <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#16171d] via-[#1b2229] to-[#16171d] border border-[#2a2a2d] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+                    <div className="space-y-2 max-w-2xl">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 text-[11px] font-bold uppercase tracking-wider">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>TheCocktailDB Zero-Proof & VIP Mixology</span>
                       </div>
-                      <h2 className="font-syne font-bold text-xl sm:text-3xl text-white">
-                        Concert Pairing: Personalized Mocktails & Cocktails
-                      </h2>
-                      <p className="text-xs sm:text-base text-[#c1c6d9] leading-relaxed">
-                        Elevate your show experience — seamless VIP pre-concert mocktail pairings and after-party lounge reserves matched directly to your concert's genre soundtrack.
+                      <h3 className="font-syne font-bold text-2xl sm:text-3xl text-white">
+                        Meet Your Mocktail DJ: Soundscape Pairings
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#c1c6d9] leading-relaxed">
+                        Match Singapore's live concerts with custom botanical mocktails and guaranteed reserved VIP tables at ATLAS, Smoke &amp; Mirrors, and Manhattan Bar.
                       </p>
-                    </div>
-
-                    {/* Partnership Pill */}
-                    <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#16171d] border border-[#2a2a2d] self-start lg:self-auto shadow-sm">
-                      <div className="w-9 h-9 rounded-xl bg-[#2a2a2d] flex items-center justify-center text-[#ffb4a7]">
-                        <ShieldCheck className="w-5 h-5" />
-                      </div>
-                      <div className="text-left">
-                        <div className="text-white text-xs font-bold">Priority Concierge Entry</div>
-                        <div className="text-[#c1c6d9] text-[11px]">No waitlists • Reserved Table Included</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Drink Mode Switcher: Mocktail DJ vs Bespoke Cocktails vs TheCocktailDB Mocktails */}
-                  <div className="flex items-center gap-2 mb-6 overflow-x-auto no-scrollbar pb-1">
-                    <button
-                      type="button"
-                      onClick={() => setHomeDrinkMode('mocktail-dj')}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shrink-0 ${
-                        homeDrinkMode === 'mocktail-dj'
-                          ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-950/40 ring-1 ring-emerald-400'
-                          : 'bg-[#1b1b1e] text-[#c1c6d9] hover:text-white border border-[#2a2a2d]'
-                      }`}
-                    >
-                      <Sparkles className="w-3.5 h-3.5 text-emerald-300 animate-pulse" />
-                      <span>Mocktail DJ (Concert Matcher)</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHomeDrinkMode('signature')}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shrink-0 ${
-                        homeDrinkMode === 'signature'
-                          ? 'bg-[#b41503] text-white shadow-sm'
-                          : 'bg-[#1b1b1e] text-[#c1c6d9] hover:text-white border border-[#2a2a2d]'
-                      }`}
-                    >
-                      <Wine className="w-3.5 h-3.5 text-[#ffb4a7]" />
-                      <span>Bespoke VIP Pairings</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setHomeDrinkMode('non-alcoholic')}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shrink-0 ${
-                        homeDrinkMode === 'non-alcoholic'
-                          ? 'bg-[#1f2533] text-emerald-400 border border-emerald-500/40 shadow-sm'
-                          : 'bg-[#1b1b1e] text-[#c1c6d9] hover:text-white border border-[#2a2a2d]'
-                      }`}
-                    >
-                      <span>Zero-Proof Collection ({'>'}50)</span>
-                    </button>
-                  </div>
-
-                  {/* Mode 1: Mocktail DJ */}
-                  {homeDrinkMode === 'mocktail-dj' && (
-                    <div className="mb-6">
-                      <MocktailDJSection
-                        onBookConcert={(c) => setBookingConcert(c)}
-                        onReserveDrink={handleReserveMocktailDrink}
-                      />
-                    </div>
-                  )}
-
-                  {/* Mode 2: Bespoke VIP Cocktails */}
-                  {homeDrinkMode === 'signature' && (
-                    <>
-                      {/* Vibe Switcher */}
-                      <div className="p-3.5 sm:p-4 rounded-2xl bg-[#16171d] border border-[#2a2a2d] shadow-lg mb-6 sm:mb-8">
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                          <div className="flex items-center gap-2">
-                            <Sparkles className="text-[#ffb4a7] w-4 h-4" />
-                            <span className="font-syne font-bold text-xs uppercase tracking-wide text-white">
-                              Match Your Concert Vibe:
-                            </span>
-                          </div>
-                          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-                            {VIBE_TABS.map((vibe) => (
-                              <button
-                                key={vibe}
-                                type="button"
-                                onClick={() => setVibeFilter(vibe)}
-                                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                                  vibeFilter === vibe
-                                    ? 'bg-[#b41503] text-white shadow-[0_0_16px_rgba(180,21,3,0.3)]'
-                                    : 'bg-[#1f1f22] text-[#c1c6d9] hover:text-white hover:bg-[#2a2a2d]'
-                                }`}
-                              >
-                                {vibe}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Curated Cocktail Cards */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-                        {filteredCocktails.map((cocktail) => (
-                          <CocktailCard
-                            key={cocktail.id}
-                            cocktail={cocktail}
-                            onReserveClick={(c) => setReserveCocktail(c)}
-                          />
-                        ))}
-                      </div>
-                    </>
-                  )}
-
-                  {/* Mode 3: All TheCocktailDB Non-Alcoholic Drinks */}
-                  {homeDrinkMode === 'non-alcoholic' && (
-                    <div className="mb-6">
-                      <NonAlcoholicCocktailsSection
-                        onSelectDrink={(drink) => {
-                          setReserveCocktail({
-                            id: `na-${drink.idDrink}`,
-                            number: `#NA`,
-                            name: drink.strDrink,
-                            tag: 'TheCocktailDB Zero-Proof',
-                            abv: '0.0% ABV • Botanical Mocktail',
-                            pairingTitle: 'Pairs with All Marquee Shows',
-                            pairedArtist: 'All Artists',
-                            pairingType: 'Curated',
-                            barName: 'ATLAS Bar & Smoke & Mirrors (Zero-Proof Bar)',
-                            barLocation: 'Dedicated Mocktail Station • Priority Booth',
-                            pricePerGuest: 28,
-                            perk: 'Zero-Proof Botanical Reserve',
-                            description: `Freshly prepared ${drink.strDrink} served over hand-cut ice with artisanal botanical cordials and effervescent finish.`,
-                            imageUrl: drink.strDrinkThumb,
-                            altText: drink.strDrink,
-                            vibe: 'Smooth Jazz & Acoustic',
-                          });
-                        }}
-                      />
-                    </div>
-                  )}
-
-                  {/* Guaranteed Reservation Footnote */}
-                  <div className="mt-8 sm:mt-10 p-4 sm:p-5 rounded-2xl bg-[#16171d] border border-[#2a2a2d] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded-xl bg-[#b41503] text-white shrink-0">
-                        <CheckCircle className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h4 className="font-syne font-bold text-xs sm:text-sm text-white">
-                          100% Guaranteed Reserved Table with Ticket Purchase
-                        </h4>
-                        <p className="text-[11px] sm:text-xs text-[#c1c6d9]">
-                          No separate bookings required. Present your BookMyShow digital pass at ATLAS, Smoke & Mirrors, or Manhattan for complimentary coat check and priority seating.
-                        </p>
-                      </div>
                     </div>
                     <button
                       type="button"
                       onClick={() => setActiveTab('lounges')}
-                      className="whitespace-nowrap px-4 py-2 rounded-xl bg-[#2a2a2d] hover:bg-[#353438] text-white text-xs font-semibold transition-colors"
+                      className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-xl shadow-emerald-950/50 flex items-center gap-2 shrink-0 transition-all cursor-pointer"
                     >
-                      Explore All 14 Partner Bars
+                      <Sparkles className="w-4 h-4" />
+                      <span>Launch Mocktail DJ</span>
+                      <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -634,74 +483,55 @@ export default function App() {
             </div>
           )}
 
-          {/* TAB 2: VIP LOUNGES DEDICATED SCREEN */}
+          {/* TAB 2: MOCKTAIL DJ DEDICATED SCREEN */}
           {activeTab === 'lounges' && (
-            <div className="w-full py-6 sm:py-10 px-4 sm:px-8 max-w-7xl mx-auto space-y-8">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#2a2a2d] pb-4">
+            <div className="w-full py-6 sm:py-10 px-4 sm:px-8 max-w-7xl mx-auto space-y-10">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#2a2a2d] pb-5">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#ffb4a7] mb-1">
-                    <Wine className="w-3.5 h-3.5" />
-                    <span>Curated Mixology Reserves & Live APIs</span>
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>TheCocktailDB Live API & Music Matcher</span>
                   </div>
                   <h2 className="font-syne font-bold text-2xl sm:text-3xl text-white">
-                    Singapore VIP Lounges & Cocktail Pairings
+                    Mocktail DJ
                   </h2>
                   <p className="text-xs sm:text-sm text-[#c1c6d9] mt-1">
-                    Handcrafted alcoholic pairings & TheCocktailDB-powered zero-proof reserves for concert ticket holders across Singapore's award-winning cocktail bars.
+                    Match Singapore live concerts with handcrafted botanical zero-proof mocktails and guaranteed VIP lounge table reservations across Singapore.
                   </p>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] text-[#c1c6d9]">
+                  <span className="px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+                    0.0% ABV • Botanical & Zero-Proof
+                  </span>
+                  <span className="text-[11px] text-[#c1c6d9] hidden sm:inline-block">
                     14 Official Bar Partners
                   </span>
                 </div>
               </div>
 
-              {/* Vibe Filter Pills */}
-              <div className="space-y-3">
+              {/* SECTION 1: FLAGSHIP MOCKTAIL DJ SOUNDSCAPE MATCHER */}
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-syne font-bold text-sm text-white uppercase tracking-wider">
-                    Signature Bar Pairings (By Vibe)
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="font-syne font-bold text-sm text-white uppercase tracking-wider">
+                      Live Concert Soundscape Matcher
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-[#c1c6d9]">
+                    Powered by TheCocktailDB
                   </span>
                 </div>
-                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-                  {VIBE_TABS.map((vibe) => (
-                    <button
-                      key={vibe}
-                      type="button"
-                      onClick={() => setVibeFilter(vibe)}
-                      className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
-                        vibeFilter === vibe
-                          ? 'bg-[#b41503] text-white shadow-md'
-                          : 'bg-[#1b1b1e] text-[#c1c6d9] hover:text-white hover:bg-[#2a2a2d]'
-                      }`}
-                    >
-                      {vibe}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* All cocktails list */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {COCKTAILS_DATA.map((cocktail) => (
-                  <CocktailCard
-                    key={cocktail.id}
-                    cocktail={cocktail}
-                    onReserveClick={(c) => setReserveCocktail(c)}
-                  />
-                ))}
-              </div>
-
-              {/* LIVE THECOCKTAILDB API SECTION */}
-              <div className="pt-6 border-t border-[#2a2a2d] space-y-6">
-                {/* Mocktail DJ: Match Mocktails to Scheduled Concerts */}
                 <MocktailDJSection
                   onBookConcert={(c) => setBookingConcert(c)}
                   onReserveDrink={handleReserveMocktailDrink}
                 />
+              </div>
 
+              {/* SECTION 2: THECOCKTAILDB ZERO-PROOF COLLECTION (>50) */}
+              <div className="pt-8 border-t border-[#2a2a2d] space-y-4">
                 <NonAlcoholicCocktailsSection
                   onSelectDrink={(drink) => {
                     // Create an on-the-fly zero proof experience
@@ -725,6 +555,65 @@ export default function App() {
                     });
                   }}
                 />
+              </div>
+
+              {/* SECTION 3: PARTNER VIP LOUNGES & BESPOKE COCKTAIL RESERVES */}
+              <div className="pt-8 border-t border-[#2a2a2d] space-y-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <span className="font-syne font-bold text-base text-white uppercase tracking-wider block">
+                      Partner VIP Lounges & Mixology Reserves
+                    </span>
+                    <span className="text-xs text-[#c1c6d9]">
+                      14 Official Bar Partners • Guaranteed tables included with ticket passes
+                    </span>
+                  </div>
+
+                  {/* Vibe Filter Pills */}
+                  <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                    {VIBE_TABS.map((vibe) => (
+                      <button
+                        key={vibe}
+                        type="button"
+                        onClick={() => setVibeFilter(vibe)}
+                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                          vibeFilter === vibe
+                            ? 'bg-[#b41503] text-white shadow-md'
+                            : 'bg-[#1b1b1e] text-[#c1c6d9] hover:text-white hover:bg-[#2a2a2d]'
+                        }`}
+                      >
+                        {vibe}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {filteredCocktails.map((cocktail) => (
+                    <CocktailCard
+                      key={cocktail.id}
+                      cocktail={cocktail}
+                      onReserveClick={(c) => setReserveCocktail(c)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* SECTION 4: GUARANTEED PRIVILEGE CALLOUT */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#16171d] border border-[#2a2a2d] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-[#b41503] text-white shrink-0">
+                    <CheckCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-syne font-bold text-xs sm:text-sm text-white">
+                      100% Guaranteed Reserved Table with Ticket Purchase
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-[#c1c6d9]">
+                      No separate bookings required. Present your Mixtape digital pass at ATLAS, Smoke &amp; Mirrors, or Manhattan for complimentary coat check and priority seating.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -804,12 +693,12 @@ export default function App() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <img
-                    alt="BookMyShow SG Logo"
+                    alt="Mixtape SG Logo"
                     className="h-6 w-auto object-contain"
                     src="https://lh3.googleusercontent.com/aida/AEtjO1UBs5Htlhk-Qc4vDTa_r8efEX15y01kQBsIEg3uzDHUSfiSeZPXnhLSEhevYhlk-Qat9oKfeut7xvbjrqHOdxr2TIFJLd3RhWTqaGMfzU7SVk83luKWeaJtzlw_xM1V7U0IPCEK1lgqnqPmjPwhiC9NjTXrbg46XUJvZF09Oa3f2k-cjQKHMQCj070CvZcqjllVUTSDb5vLKV17pjbIzMaOOrwZq72MBbU1EjpXBMt9INwpFZ0CfNNAtRQ"
                   />
                   <span className="font-syne font-bold text-sm tracking-wider uppercase text-white">
-                    BookMyShow
+                    Mixtape
                   </span>
                 </div>
                 <p className="text-xs text-[#c1c6d9] leading-relaxed">

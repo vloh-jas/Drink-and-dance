@@ -1,5 +1,5 @@
 {
-  "name": "BookMyShow SG - Live Concerts & Curated Lounges",
+  "name": "Mixtape SG - Live Concerts & Curated Lounges",
   "description": "Singapore premier live concerts ticketing and VIP cocktail lounge reservations with iTunes music previews.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

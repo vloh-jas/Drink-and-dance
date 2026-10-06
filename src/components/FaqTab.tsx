@@ -33,7 +33,7 @@ const OFFICIAL_CONCERT_FAQS: FaqItem[] = [
     category: 'VIP Lounges & Cocktails',
     question: 'How do I claim my guaranteed table at ATLAS Bar, Smoke & Mirrors, or Manhattan Bar?',
     answer:
-      'Every BookMyShow concert pass with a VIP Lounge add-on guarantees private booth or bar seating with zero waitlist. Simply present your BookMyShow SG Digital Pass QR code to the concierge upon arrival. You will receive priority entry, complimentary coat-check, and your signature cocktail or TheCocktailDB-curated zero-proof mocktail.',
+      'Every Mixtape concert pass with a VIP Lounge add-on guarantees private booth or bar seating with zero waitlist. Simply present your Mixtape SG Digital Pass QR code to the concierge upon arrival. You will receive priority entry, complimentary coat-check, and your signature cocktail or TheCocktailDB-curated zero-proof mocktail.',
     highlight: true,
   },
   {
@@ -48,14 +48,14 @@ const OFFICIAL_CONCERT_FAQS: FaqItem[] = [
     category: 'Ticketing & Entry',
     question: 'How does the digital QR turnstile scan work at the stadium gates?',
     answer:
-      'Your BookMyShow digital ticket generates an encrypted dynamic FastScan QR code. You can display it directly from the "My Passes" tab on your phone screen. Ensure your phone brightness is set to high. Printed screenshots or PDFs are not recommended as turnstiles use real-time optical verification.',
+      'Your Mixtape digital ticket generates an encrypted dynamic FastScan QR code. You can display it directly from the "My Passes" tab on your phone screen. Ensure your phone brightness is set to high. Printed screenshots or PDFs are not recommended as turnstiles use real-time optical verification.',
   },
   {
     id: 'faq-5',
     category: 'Ticketing & Entry',
     question: 'Can I transfer or gift my concert tickets to a family member or friend?',
     answer:
-      'Yes. Ticket transfers can be initiated within your BookMyShow digital wallet up to 4 hours before gate opening. The recipient must verify with their mobile number or Singpass to receive the verified e-ticket onto their device.',
+      'Yes. Ticket transfers can be initiated within your Mixtape digital wallet up to 4 hours before gate opening. The recipient must verify with their mobile number or Singpass to receive the verified e-ticket onto their device.',
   },
   {
     id: 'faq-6',
@@ -105,7 +105,7 @@ export const FaqTab: React.FC = () => {
     {
       id: 'c-welcome',
       sender: 'concierge',
-      text: 'Welcome to BookMyShow Singapore Concierge! Ask me anything regarding concert entry times, MRT transit advice, ATLAS Bar reservations, or zero-proof mocktails.',
+      text: 'Welcome to Mixtape Singapore Concierge! Ask me anything regarding concert entry times, MRT transit advice, ATLAS Bar reservations, or zero-proof mocktails.',
       timestamp: 'Just now',
     },
   ]);
@@ -153,7 +153,7 @@ export const FaqTab: React.FC = () => {
           'We advise leaving for Singapore National Stadium 75-90 minutes before showtime. Gates open at 18:30 SGT. Taking Kallang MRT (EW10) or Stadium MRT (CC6) is the fastest way to avoid traffic!';
       } else if (lower.includes('cocktail') || lower.includes('atlas') || lower.includes('lounge') || lower.includes('drink') || lower.includes('table')) {
         reply =
-          'Your BookMyShow ticket gives you guaranteed priority entry at ATLAS Bar SG, Smoke & Mirrors, or Manhattan Bar. Show your digital QR pass for a reserved table and complimentary coat-check!';
+          'Your Mixtape ticket gives you guaranteed priority entry at ATLAS Bar SG, Smoke & Mirrors, or Manhattan Bar. Show your digital QR pass for a reserved table and complimentary coat-check!';
       } else if (lower.includes('zero') || lower.includes('mocktail') || lower.includes('alcohol')) {
         reply =
           'Yes! All our partner lounges offer TheCocktailDB-curated zero-proof mocktails (Afterglow, Bora Bora, and craft botanical spritzes) with 0.0% ABV.';

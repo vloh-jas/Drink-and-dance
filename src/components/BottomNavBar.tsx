@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Wine, Disc3, Ticket, HelpCircle } from 'lucide-react';
+import { Compass, Sparkles, Disc3, Ticket, HelpCircle } from 'lucide-react';
 
 interface BottomNavBarProps {
   activeTab: string;
@@ -21,8 +21,8 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
     },
     {
       id: 'lounges',
-      label: 'Lounges',
-      icon: Wine,
+      label: 'Mocktail DJ',
+      icon: Sparkles,
       badge: null,
     },
     {

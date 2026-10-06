@@ -91,7 +91,7 @@ export const LoungeReservationModal: React.FC<LoungeReservationModalProps> = ({
                   Table Reserved with Ticket Privilege!
                 </h3>
                 <p className="text-xs text-[#c1c6d9] mt-1">
-                  Present your BookMyShow digital pass at {cocktail.barName} for priority seating and complimentary coat check.
+                  Present your Mixtape digital pass at {cocktail.barName} for priority seating and complimentary coat check.
                 </p>
               </div>
 
