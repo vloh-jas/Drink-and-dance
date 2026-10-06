@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-syne: 'Syne', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --color-surface: #131316;
+  --color-surface-dim: #0e0e11;
+  --color-surface-stage: #16171d;
+  --color-surface-container: #1f1f22;
+  --color-surface-container-low: #1b1b1e;
+  --color-surface-container-high: #2a2a2d;
+  --color-surface-container-highest: #353438;
+  --color-surface-lounge: #1f2533;
+  --color-primary-container: #b41503;
+  --color-crimson-signal: #f80824;
+  --color-primary: #ffb4a7;
+  --color-secondary: #c1c6d9;
+  --color-on-surface: #e4e1e6;
+  --color-on-surface-variant: #e5beb7;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #131316;
+  color: #e4e1e6;
+  overscroll-behavior-y: none;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
